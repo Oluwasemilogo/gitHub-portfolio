@@ -19,11 +19,16 @@
       </div>
     </section>
   </div>
+  <ReposComponent />
+  
 </template>
 
 <script>
+import ReposComponent from './ReposComponent.vue';
 export default {
-  name: "HomeView",
+  components: {
+    ReposComponent,
+  },
   data() {
     return {
       data: {},

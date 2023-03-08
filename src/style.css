@@ -15,15 +15,22 @@ body {
     text-decoration: inherit;
 } */
 .repos {
-  /* margin-top: 5rem; */
   background-color: rgb(246, 248, 250);
+ 
 }
 .repo-container {
-  display: grid;
+  /* display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  justify-content: center; */
+  margin-top: 3rem;
+}
+.repo-content{
+    display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   justify-content: center;
-  margin-top: 3rem;
+    margin-top: 3rem;
 }
 .repo-card {
   border-radius: 5px;

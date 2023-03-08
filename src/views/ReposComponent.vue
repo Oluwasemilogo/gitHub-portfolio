@@ -1,48 +1,59 @@
 <template>
   <div class="repos">
-   <h1 class="repo-header">Repositories</h1>
-    <div class="repo-container" v-for="repo in data" :key="repo.id">
-      <div class="repo-card">
-        <h4 class="repo-name">{{ repo.name }}</h4>
-      <p class="repo-description">{{ repo.description }}</p>
-                <div class="language">
-                <p class="repo-lang">{{ repo.language }}</p>
-                </div>
-                <div class="other">
+    <h1 class="repo-header">Repositories</h1>
+
+    <div class="repo-content">
+      <div class="repo-container" v-for="repo in repositories" :key="repo.id">
+        <div class="repo-card">
+          <h4 class="repo-name">{{ repo.name }}</h4>
+          <p class="repo-description">{{ repo.description }}</p>
+          <div class="language">
+            <p class="repo-lang">{{ repo.language }}</p>
+          </div>
+          <div class="other">
             <p class="repo-other">ID:{{ repo.id }}</p>
-                  <p class="repo-other">{{ repo.size }}Kb</p>
-                </div>
+            <p class="repo-other">{{ repo.size }}Kb</p>
+          </div>
+        </div>
+      </div>
+    
+      <div class="buttons">
+        <button @click="previousPage" class="previous">Previous</button>
+        <button @click="nextPage" class="next">Next</button>
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "ReposComponent",
   data() {
     return {
-      data: {},
+      currentPage: 1,
+      repositories: [],
     };
   },
-  mounted() {
-    fetch("https://api.github.com/users/Oluwasemilogo/repos", {
-      headers: {
-        Accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        this.data = data;
-      });
+  async mounted() {
+    await this.getRepositories(this.currentPage);
+  },
+  methods: {
+    async getRepositories(page) {
+      const response = await fetch(
+        `https://api.github.com/users/Oluwasemilogo/repos?page=${page}&per_page=8`
+      );
+      const data = await response.json();
+      this.repositories = data;
+    },
+    nextPage() {
+      this.currentPage++;
+      this.getRepositories(this.currentPage);
+    },
+    previousPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+        this.getRepositories(this.currentPage);
+      }
+    },
   },
 };
 </script>
-<style>
-/* .repo-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 3rem;
-} */
-</style>
+<style></style>

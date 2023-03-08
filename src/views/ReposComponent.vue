@@ -4,7 +4,9 @@
 
     <div class="repo-content">
       <div class="repo-container" v-for="repo in repositories" :key="repo.id">
-        <div class="repo-card">
+
+        <router-link :to="{ name: 'RepositoryDetails', params: { id: repo.id } }">
+    <div class="repo-card">
           <h4 class="repo-name">{{ repo.name }}</h4>
           <p class="repo-description">{{ repo.description }}</p>
           <div class="language">
@@ -15,6 +17,8 @@
             <p class="repo-other">{{ repo.size }}Kb</p>
           </div>
         </div>
+      </router-link>
+
       </div>
     
       <div class="buttons">

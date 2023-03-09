@@ -17,17 +17,16 @@ const routes = [
   },
 
   {
-    path: "/repositories:id",
-    name: "repositories",
+    path: "/repositories/:name",
     component: RepositoriesDetails,
     props: true,
   },
 
-  {
-    path: "/:catchAll(.*)",
-    name: "error",
-    component: ErrorPage,
-  },
+  // {
+  //   path: "/:catchAll(.*)",
+  //   name: "error",
+  //   component: ErrorPage,
+  // },
 ];
 
 const router = createRouter({

@@ -10,7 +10,6 @@
 
 <script>
 export default {
-  props: ["id"],
   data() {
     return {
       repository: {},
@@ -18,7 +17,7 @@ export default {
   },
   async created() {
     const response = await fetch(
-      `https://api.github.com/users/Oluwasemilogo/repos/${this.id}`
+      `https://api.github.com/users/Oluwasemilogo/repos/${this.$route.params.name}`
     );
     const data = await response.json();
     this.repository = data;

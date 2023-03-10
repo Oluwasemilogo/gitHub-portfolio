@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import ErrorPage from "../views/ErrorPage.vue";
 import RepositoriesDetails from "../views/RepositoriesDetails.vue";
-import ReposComponent from "../views/ReposComponent.vue";
 
 const routes = [
   {
@@ -10,23 +9,19 @@ const routes = [
     name: "home",
     component: HomeView,
   },
-  {
-    path: "/",
-    name: ReposComponent,
-    component: ReposComponent,
-  },
 
   {
     path: "/repositories/:name",
+    name: "repositoryDetails",
     component: RepositoriesDetails,
     props: true,
   },
 
-  // {
-  //   path: "/:catchAll(.*)",
-  //   name: "error",
-  //   component: ErrorPage,
-  // },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "error",
+    component: ErrorPage,
+  },
 ];
 
 const router = createRouter({

@@ -5,7 +5,7 @@
     <div class="repo-content">
       <div class="repo-container" v-for="repo in repositories" :key="repo.id">
 
-        <router-link :to="'/repositories/' + repo.name">
+        <router-link :to="'/repositories/' + repo.name" class="router-link">
     <div class="repo-card">
           <h4 class="repo-name">{{ repo.name }}</h4>
           <p class="repo-description">{{ repo.description }}</p>
@@ -21,11 +21,15 @@
 
       </div>
     
-      <div class="buttons">
+      <!-- <div class="buttons">
+        <button @click="previousPage" class="previous">Previous</button>
+        <button @click="nextPage" class="next">Next</button>
+      </div> -->
+    </div>
+    <div class="buttons">
         <button @click="previousPage" class="previous">Previous</button>
         <button @click="nextPage" class="next">Next</button>
       </div>
-    </div>
   </div>
 </template>
 <script>
@@ -60,4 +64,9 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+.router-link {
+  text-decoration: none;
+  color: inherit;
+}
+</style>

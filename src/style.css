@@ -9,20 +9,12 @@ body {
   overflow: scroll;
   height: 100%;
 }
-/* ul{
-    list-style: none;
-    color: inherit;
-    text-decoration: inherit;
-} */
+
 .repos {
   background-color: rgb(246, 248, 250);
  
 }
 .repo-container {
-  /* display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  justify-content: center; */
   margin-top: 3rem;
 }
 .repo-content{
@@ -87,32 +79,41 @@ body {
   margin-bottom: 20px;
 }
 .profile-container {
-  background-color: rgb(26, 30, 34);
+  background-color:  #1e2a47;
   color: rgb(200, 225, 255);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 4rem;
+  padding: 3rem;
+
+}
+.profile-top{
+  display: flex;
+  justify-content: space-between;
+  gap:1.5rem;
+  align-items: center;
+  box-shadow:  #3b4f76;
+  padding: 3rem;
 }
 .avatar {
   width: 140px;
   height: 140px;
   border-radius: 50%;
   margin-bottom: 20px;
-  border: 5px solid rgb(0, 112, 243);
+  
 }
 .profile-name {
   margin-bottom: 20px;
-  font-size: 40px;
-  font-weight: 600;
+  font-size: 32px;
+  font-weight: 700;
   color: rgb(246, 248, 250);
 }
 .username {
   margin-bottom: 20px;
-  font-size: 30px;
-  font-weight: 700;
-  color: rgb(0, 112, 243);
+  font-size: 24px;
+  font-weight: 300;
+  color: #caf0f8;
 }
 .section {
   display: flex;
@@ -128,7 +129,7 @@ body {
 }
 .stat {
   border-radius: 5px;
-  background-color: rgb(36, 41, 46);
+  background-color:  #3b4f76;
   padding: 10px;
 }
 .profile-details {
@@ -142,8 +143,8 @@ body {
 .bio {
   margin-bottom: 20px;
   font-size: 18px;
-  font-weight: 600;
-  color: rgb(200, 225, 255);
+  font-weight: 400;
+  color: rgb(246, 248, 250);
 }
 .details-overall-con {
   height: 95vh;
@@ -241,6 +242,10 @@ body {
 }
 @media screen and (max-width: 700px) {
   .repo-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .profile-top{
     display: flex;
     flex-direction: column;
   }

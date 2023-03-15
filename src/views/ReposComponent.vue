@@ -21,10 +21,7 @@
 
       </div>
     
-      <!-- <div class="buttons">
-        <button @click="previousPage" class="previous">Previous</button>
-        <button @click="nextPage" class="next">Next</button>
-      </div> -->
+    
     </div>
     <div class="buttons">
         <button @click="previousPage" class="previous">Previous</button>
